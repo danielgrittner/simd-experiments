@@ -1,0 +1,5 @@
+CC=g++
+CFLAGS=-O3 -march=native
+
+benchmark: main.cpp benchmark_util.h
+            $(CC) -o benchmark

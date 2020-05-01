@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/danielgrittner/development/uni-coding/modern-dbs/simd-experiments/benchmark_util.h">
+			<Option target="simd_experiments"/>
+		</Unit>
 		<Unit filename="/Users/danielgrittner/development/uni-coding/modern-dbs/simd-experiments/main.cpp">
 			<Option target="simd_experiments"/>
 		</Unit>
