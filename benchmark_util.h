@@ -4,7 +4,7 @@
 #include <random>
 #include <iostream>
 
-constexpr size_t DATASET_SIZE = 1000000;
+constexpr size_t DATASET_SIZE = 100000000;
 constexpr size_t ALIGNMENT = 64;
 
 struct alignas(64) data_block {

@@ -11,11 +11,10 @@
  *
  *      select count(*) from foo f where foo.x = 3;
  */
-void execute_scalar_benchmark() {
+void execute_scalar_benchmark(const std::shared_ptr<data_block> &data, const size_t dataset_size) {
   constexpr size_t reps{3U};
-  constexpr size_t steps{1000U};
+  constexpr size_t steps{10U};
 
-  const auto [data, dataset_size] = generator::generate_column();
   const auto& col = data.get()->values;
 
   for (size_t rep = 0U; rep < reps; rep++) {
@@ -52,12 +51,11 @@ void execute_scalar_benchmark() {
  *
  *      select count(*) from foo f where foo.x = 3;
  */
-void execute_simd_benchmark_using_avx512() {
+void execute_simd_benchmark_using_avx512(const std::shared_ptr<data_block> &data, const size_t &dataset_size) {
   constexpr size_t reps{3U};
-  constexpr size_t steps{1000U};
+  constexpr size_t steps{10U};
   constexpr size_t simd_size{16};
 
-  const auto [data, dataset_size] = generator::generate_column();
   const auto& col = data.get()->values;
 
   for (size_t rep = 0U; rep < reps; rep++) {
@@ -113,11 +111,13 @@ void execute_simd_benchmark_using_avx512() {
 }
 
 int main() {
+  const auto [data, dataset_size] = generator::generate_column();
+
   std::cout << "SCALAR BENCHMARK\n";
-  execute_scalar_benchmark();
+  execute_scalar_benchmark(data, dataset_size);
 
   std::cout << "\nSIMD BENCHMARK:\n";
-  execute_simd_benchmark_using_avx512();
+  execute_simd_benchmark_using_avx512(data, dataset_size);
 
   return EXIT_SUCCESS;
 }
