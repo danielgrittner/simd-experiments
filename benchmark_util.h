@@ -5,10 +5,10 @@
 #include <iostream>
 
 constexpr size_t DATASET_SIZE = 1000000;
-constexpr size_t ALIGNMENT = 32;
+constexpr size_t ALIGNMENT = 64;
 
-struct alignas(32) data_block {
-  int[] values;
+struct alignas(64) data_block {
+  int32_t values[DATASET_SIZE];
 };
 
 struct generator_result {

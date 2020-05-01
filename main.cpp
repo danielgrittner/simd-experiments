@@ -75,7 +75,7 @@ void execute_simd_benchmark_using_avx512() {
       size_t data_size_simd = dataset_size - (dataset_size % simd_size);
 
       // Comparison vector.
-      alignas(32) int32_t cmp[16] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+      alignas(64) int32_t cmp[16] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
       auto cmp_vec = _mm512_load_epi32(cmp);
 
       // SIMD PART -----------------------------------------------------------------------------------------------------
