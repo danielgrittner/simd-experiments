@@ -20,7 +20,6 @@ using generator_result_t = generator_result;
 
 struct generator {
   static generator_result_t generate_column() {
-    // std::shared_ptr<int[]> data(static_cast<int*>(aligned_alloc(ALIGNMENT, DATASET_SIZE * sizeof(int32_t))));
     std::shared_ptr<data_block> data(new data_block);
 
     std::cout << "Generating data...\n";
